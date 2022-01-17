@@ -1,5 +1,10 @@
 {
   "*.(js|jsx|ts|tsx|vue)": [
-    "yarn lint:fix:js"
+    "yarn lint:fix:js",
+    "git add ."
   ],
+  "*.(md|mdx)": [
+    "yarn lint:fix:md",
+    "git add ."
+  ]
 }

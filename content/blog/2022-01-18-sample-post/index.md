@@ -5,10 +5,10 @@ date: 2022-01-18
 excerpt: "This is sample post"
 ---
 
-# Sample Post
+## Sample Post
 
 This is sample post.
 
-## Overview
+### Overview
 
 Blah~ Blah~.
