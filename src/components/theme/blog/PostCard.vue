@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Card from '~/components/molecules/cards/Card.vue'
+import Card from '~/components/molecules/forms/Card.vue'
 import PostMeta from '~/components/theme/blog/PostMeta.vue'
 
 export default {

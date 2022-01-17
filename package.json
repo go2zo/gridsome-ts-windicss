@@ -24,6 +24,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-gridsome": "^1.6.2",
     "eslint-plugin-prettier": "^4.0.0",
+    "gridsome-plugin-windicss": "^1.0.5",
     "husky": "^7.0.0",
     "lint-staged": "^12.1.7",
     "markdownlint-cli": "^0.30.0",

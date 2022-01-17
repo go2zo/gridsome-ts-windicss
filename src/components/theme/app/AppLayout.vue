@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="relative w-full">
     <AppHeader :links="headerLinks" />
-    <slot></slot>
+    <slot />
     <AppFooter />
   </div>
 </template>

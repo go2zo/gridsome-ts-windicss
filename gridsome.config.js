@@ -18,6 +18,12 @@ module.exports = {
         path: 'content/blog/**/index.*',
       },
     },
+    {
+      use: 'gridsome-plugin-windicss',
+      options: {
+        preflight: false,
+      },
+    },
   ],
   transformers: {
     remark: {
