@@ -31,12 +31,13 @@ query {
 }
 </page-query>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import PostCard from '~/components/theme/blog/PostCard.vue'
 
-export default {
+export default Vue.extend({
   components: {
     PostCard,
   },
-}
+})
 </script>

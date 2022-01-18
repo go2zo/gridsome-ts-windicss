@@ -6,11 +6,12 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import AppHeader from './AppHeader.vue'
 import AppFooter from './AppFooter.vue'
 
-export default {
+export default Vue.extend({
   components: {
     AppHeader,
     AppFooter,
@@ -31,5 +32,5 @@ export default {
       },
     ],
   }),
-}
+})
 </script>

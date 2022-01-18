@@ -14,8 +14,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   props: {
     link: {
       type: String,
@@ -30,5 +32,5 @@ export default {
       default: null,
     },
   },
-}
+})
 </script>

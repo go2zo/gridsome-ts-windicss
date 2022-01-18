@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+      "target": "esnext",
+      "module": "esnext",
+      "moduleResolution": "node",
+      "noImplicitReturns": true,
+      "sourceMap": true,
+      "strict": true
+  },
+  "include": [
+      "./src/**/*"
+  ]
+}

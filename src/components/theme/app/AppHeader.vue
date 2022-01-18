@@ -27,10 +27,11 @@ query {
 }
 </static-query>
 
-<script>
-import Logo from '~/assets/images/gridsome-logo.svg'
+<script lang="ts">
+import Vue from 'vue'
+import Logo from '@/assets/images/gridsome-logo.svg'
 
-export default {
+export default Vue.extend({
   components: {
     Logo,
   },
@@ -40,5 +41,5 @@ export default {
       default: () => [],
     },
   },
-}
+})
 </script>

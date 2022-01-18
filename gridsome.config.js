@@ -51,6 +51,9 @@ module.exports = {
         preflight: false,
       },
     },
+    {
+      use: 'gridsome-plugin-typescript',
+    },
   ],
   transformers: {
     remark: {

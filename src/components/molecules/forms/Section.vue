@@ -8,8 +8,10 @@
   </section>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   props: {
     dark: Boolean,
     dots: Boolean,
@@ -20,5 +22,5 @@ export default {
     framed: Boolean,
     secondary: Boolean,
   },
-}
+})
 </script>

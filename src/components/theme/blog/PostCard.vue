@@ -6,17 +6,18 @@
   </Card>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import Card from '~/components/molecules/forms/Card.vue'
 import PostMeta from '~/components/theme/blog/PostMeta.vue'
 
-export default {
+export default Vue.extend({
   components: {
     Card,
     PostMeta,
   },
   props: {
-    post: { type: Object, require: true },
+    post: { type: Object, required: true },
   },
-}
+})
 </script>
