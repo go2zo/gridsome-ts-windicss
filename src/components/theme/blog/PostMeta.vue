@@ -12,8 +12,7 @@
             v-if="author.avatar"
             :key="author.id"
             :alt="author.title"
-            :src="author.avatar"
-          />
+            :src="author.avatar" />
           <g-link v-if="author.path" :key="author.id" :to="author.path">{{
             author.title
           }}</g-link>

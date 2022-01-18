@@ -8,8 +8,7 @@
       <PostCard
         v-for="edge in $page.posts.edges"
         :key="edge.node.id"
-        :post="edge.node"
-      />
+        :post="edge.node" />
     </div>
   </Layout>
 </template>
