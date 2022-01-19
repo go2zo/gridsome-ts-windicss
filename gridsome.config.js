@@ -39,21 +39,32 @@ module.exports = {
   },
   plugins: [
     {
+      use: '@gridsome/vue-remark',
+      options: {
+        index: ['README'],
+        baseDir: './content/docs',
+        pathPrefix: '/docs',
+        typeName: 'DocsPage',
+        template: './src/templates/DocPage.vue',
+        remark: {
+          autolinkHeadings: {
+            content: {
+              type: 'text',
+              value: '#'
+            }
+          }
+        }
+      }
+    },
+    {
       use: '@gridsome/source-filesystem',
       options: {
         typeName: 'BlogPost',
         path: 'content/blog/**/index.*',
       },
     },
-    {
-      use: 'gridsome-plugin-windicss',
-      options: {
-        preflight: false,
-      },
-    },
-    {
-      use: 'gridsome-plugin-typescript',
-    },
+    { use: 'gridsome-plugin-windicss' },
+    { use: 'gridsome-plugin-typescript' },
   ],
   transformers: {
     remark: {

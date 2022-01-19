@@ -1,13 +1,31 @@
 {
   "compilerOptions": {
-      "target": "esnext",
-      "module": "esnext",
-      "moduleResolution": "node",
-      "noImplicitReturns": true,
-      "sourceMap": true,
-      "strict": true
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": false,
+    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "outDir": "./built/",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": [
-      "./src/**/*"
+      "./src/**/*",
+      "./gridsome.*.js"
+  ],
+  "exclude": [
+    "content",
+    "node_modules",
+    "static",
+    "src/.temp",
+    "src/assets",
+    "dist"
   ]
 }

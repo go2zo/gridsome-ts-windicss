@@ -1,0 +1,11 @@
+- title: Prologue
+  items:
+    - title: Introduction
+      link: /docs/
+    - title: Core concepts
+      link: /docs/core-concepts/
+
+- title: Front end
+  items:
+    - title: Gridsome
+      link: /docs/gridsome

@@ -1,13 +1,13 @@
 {
-  "*.(js|jsx|ts|tsx|vue)": [
+  "*.{js,jsx,ts,tsx,vue}": [
     "yarn lint:fix:js",
     "git add ."
   ],
-  "*.(md|mdx)": [
+  "*.{md,mdx}": [
     "yarn lint:fix:md",
     "git add ."
   ],
-  "*.(css|scss|sass|vue)": [
+  "*.{css,scss,vue}": [
     "yarn lint:fix:style",
     "git add ."
   ]
