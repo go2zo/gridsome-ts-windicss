@@ -6,5 +6,9 @@
   "*.(md|mdx)": [
     "yarn lint:fix:md",
     "git add ."
+  ],
+  "*.(css|scss|sass|vue)": [
+    "yarn lint:fix:style",
+    "git add ."
   ]
 }

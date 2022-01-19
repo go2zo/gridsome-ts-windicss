@@ -1,7 +1,7 @@
 <template>
   <Card :link="post.path">
-    <h3 v-html="post.title" />
-    <p v-html="post.excerpt" />
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.excerpt }}</p>
     <PostMeta :post="post" />
   </Card>
 </template>

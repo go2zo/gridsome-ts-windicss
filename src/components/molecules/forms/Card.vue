@@ -1,6 +1,11 @@
 <template>
   <div>
-    <g-link v-if="link" :to="link"> Read more </g-link>
+    <g-link
+      v-if="link"
+      :to="link"
+    >
+      Read more
+    </g-link>
     <div v-if="title">
       <span>{{ title }}</span>
     </div>

@@ -2,7 +2,8 @@ module.exports = {
   root: true,
   parser: 'vue-eslint-parser',
   parserOptions: {
-    parser: '@typescript-eslint/parser'
+    parser: '@typescript-eslint/parser',
+    sourceType: 'module',
   },
   env: {
     browser: true,
@@ -18,5 +19,13 @@ module.exports = {
     }
   },
   plugins: ['prettier'],
-  extends: ['plugin:gridsome/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:vue/recommended',
+    'plugin:gridsome/recommended'
+  ],
+  rules: {
+    'vue/multi-word-component-names': 'off',
+  }
 }

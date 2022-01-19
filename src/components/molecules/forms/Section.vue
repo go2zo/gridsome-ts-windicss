@@ -3,7 +3,10 @@
     <div>
       <slot />
     </div>
-    <div v-if="dots" class="dots-bg" />
+    <div
+      v-if="dots"
+      class="dots-bg"
+    />
     <slot name="outer" />
   </section>
 </template>
