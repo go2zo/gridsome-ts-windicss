@@ -6,7 +6,7 @@
 
 <page-query>
 query ($id: ID!) {
-  doc: docsPage(id: $id) {
+  doc: docPage(id: $id) {
     title
     headings(depth: h1) {
       value
@@ -22,23 +22,23 @@ query ($id: ID!) {
 
 <script lang="ts">
 import Vue from 'vue'
-import links from '@/data/doc-links.yaml'
+import docLinks from '@/data/doc-links.yaml'
+import type { NavigationLink } from '@/types/NavigationLink';
 
 export default Vue.extend({
-  computed: {
-    links () {
-      return links
-    },
-    // subtitle () {
-    //   let subtitles = this.$page.doc.subtitles.filter((value: { depth: number }) => [2,3].includes(value.depth))
-    // }
+  provide() {
+    return {
+      aside: true,
+      links: docLinks
+    }
   },
-  // metaInfo () {
-  //   const { title, headings } = this.$page.doc
-
-  //   return {
-  //     title: title || (headings.length ? headings[0].value : undefined)
-  //   }
-  // }
+  data() {
+    return {
+      links: [] as NavigationLink[]
+    }
+  },
+  mounted() {
+    this.links = docLinks
+  }
 })
 </script>

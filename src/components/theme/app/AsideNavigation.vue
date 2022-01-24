@@ -1,7 +1,7 @@
 <template>
   <nav class="flex flex-col justify-start max-w-sm overflow-y-auto text-sm font-medium">
     <ul>
-      <template v-for="link in links">
+      <template v-for="link in $page.links">
         <AsideNavigationItem
           v-if="link.nested !== false && link.children.length"
           :key="link.to"
@@ -22,6 +22,6 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-
+  inject: ['links'],
 })
 </script>

@@ -22,13 +22,5 @@ export default {
   components: {
     AsideNavigation
   },
-  data() {
-    return {
-      params: null
-    }
-  },
-  mounted() {
-    this.params = this.$route.params
-  }
 }
 </script>

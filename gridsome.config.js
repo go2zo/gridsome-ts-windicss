@@ -44,7 +44,7 @@ module.exports = {
         index: ['README'],
         baseDir: './content/docs',
         pathPrefix: '/docs',
-        typeName: 'DocsPage',
+        typeName: 'DocPage',
         template: './src/templates/DocPage.vue',
         remark: {
           autolinkHeadings: {
