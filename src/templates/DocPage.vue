@@ -28,7 +28,9 @@ import type { NavigationLink } from '@/types/NavigationLink';
 export default Vue.extend({
   provide() {
     return {
-      aside: true,
+      layout: {
+        aside: true,
+      },
       links: docLinks
     }
   },

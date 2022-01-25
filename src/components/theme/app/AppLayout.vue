@@ -1,9 +1,24 @@
 <template>
   <div class="relative w-full">
     <AppHeader :links="headerLinks" />
-    <AppAside />
-    <slot />
-    <AppFooter />
+    <div
+      class="lg:flex"
+      :class="{ 'd-container': layout.aside }"
+    >
+      <slot
+        v-if="['xs', 'sm', 'md'].includes($mq) || layout.aside"
+        name="aside"
+      >
+        <AppAside
+          :links="headerLinks"
+          :class="layout.asideClass"
+        />
+      </slot>
+      <div class="flex-auto w-full min-w-0 lg:static lg:max-h-full lg:overflow-visible">
+        <slot />
+      </div>
+    </div>
+    <AppFooter :links="footerLinks" />
   </div>
 </template>
 
@@ -18,6 +33,9 @@ export default Vue.extend({
     AppHeader,
     AppFooter,
     AppAside,
+  },
+  inject: {
+    layout: { default: {} }
   },
   data: () => ({
     headerLinks: [
@@ -38,6 +56,7 @@ export default Vue.extend({
         title: 'About',
       },
     ],
-  }),
+    footerLinks: []
+  })
 })
 </script>
