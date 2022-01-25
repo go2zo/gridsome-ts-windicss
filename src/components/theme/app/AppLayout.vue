@@ -23,22 +23,20 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent, inject, reactive } from '@vue/composition-api'
 import AppHeader from './AppHeader.vue'
 import AppFooter from './AppFooter.vue'
 import AppAside from './AppAside.vue'
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     AppHeader,
     AppFooter,
     AppAside,
   },
-  inject: {
-    layout: { default: {} }
-  },
-  data: () => ({
-    headerLinks: [
+  setup() {
+    const layout = inject('layout', {})
+    const headerLinks = reactive([
       {
         slug: '/',
         title: 'Home',
@@ -55,8 +53,12 @@ export default Vue.extend({
         slug: '/about',
         title: 'About',
       },
-    ],
-    footerLinks: []
-  })
+    ])
+
+    return {
+      layout,
+      headerLinks
+    }
+  }
 })
 </script>

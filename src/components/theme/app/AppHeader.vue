@@ -30,10 +30,10 @@ query {
 </static-query>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from '@vue/composition-api'
 import Logo from '@/assets/images/gridsome-logo.svg'
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     Logo,
   },

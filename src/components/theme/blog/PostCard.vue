@@ -7,11 +7,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from '@vue/composition-api'
 import Card from '~/components/molecules/forms/Card.vue'
 import PostMeta from '~/components/theme/blog/PostMeta.vue'
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     Card,
     PostMeta,

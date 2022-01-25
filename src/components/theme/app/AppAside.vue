@@ -21,8 +21,10 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from '@vue/composition-api'
 import AsideNavigation from './AsideNavigation.vue'
-export default {
+
+export default defineComponent({
   components: {
     AsideNavigation
   },
@@ -37,5 +39,5 @@ export default {
 
   //   }
   // }
-}
+})
 </script>

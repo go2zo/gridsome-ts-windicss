@@ -21,26 +21,15 @@ query ($id: ID!) {
 </page-query>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent, provide } from '@vue/composition-api'
 import docLinks from '@/data/doc-links.yaml'
-import type { NavigationLink } from '@/types/NavigationLink';
 
-export default Vue.extend({
-  provide() {
-    return {
-      layout: {
-        aside: true,
-      },
-      links: docLinks
-    }
-  },
-  data() {
-    return {
-      links: [] as NavigationLink[]
-    }
-  },
-  mounted() {
-    this.links = docLinks
+export default defineComponent({
+  setup() {
+    provide('layout', {
+      aside: true,
+    })
+    provide('links', docLinks)
   }
 })
 </script>

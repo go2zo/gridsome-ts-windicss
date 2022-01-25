@@ -65,6 +65,7 @@ module.exports = {
     },
     { use: 'gridsome-plugin-windicss' },
     { use: 'gridsome-plugin-typescript' },
+    { use: 'gridsome-plugin-composition-api' },
   ],
   transformers: {
     remark: {

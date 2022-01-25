@@ -33,10 +33,10 @@ query {
 </page-query>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from '@vue/composition-api'
 import PostCard from '~/components/theme/blog/PostCard.vue'
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     PostCard,
   },
