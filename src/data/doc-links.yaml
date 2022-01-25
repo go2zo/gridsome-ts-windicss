@@ -1,11 +1,12 @@
 - title: Prologue
-  items:
+  to: /docs
+  children:
     - title: Introduction
-      link: /docs/
+      to: /docs
     - title: Core concepts
-      link: /docs/core-concepts/
+      to: /docs/core-concepts
 
 - title: Front end
-  items:
+  children:
     - title: Gridsome
-      link: /docs/gridsome
+      to: /docs/gridsome

@@ -1,6 +1,7 @@
 ---
 category: frontend
 ---
+
 # Gridsome
 
 ## Introduction

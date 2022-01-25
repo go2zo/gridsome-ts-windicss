@@ -1,5 +1,5 @@
 export interface NavigationLink {
   title: string,
-  link: string | undefined,
-  items: NavigationLink[] | undefined
+  to: string | undefined,
+  children: NavigationLink[] | undefined
 }

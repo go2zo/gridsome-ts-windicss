@@ -17,19 +17,37 @@ query ($id: ID!) {
       anchor
     }
   }
+  allDocPage {
+    edges {
+      node {
+        title
+        to: path
+      }
+    }
+  }
 }
 </page-query>
 
 <script lang="ts">
-import { defineComponent, provide } from '@vue/composition-api'
+import { defineComponent, provide, reactive, computed } from '@vue/composition-api';
 import docLinks from '@/data/doc-links.yaml'
+import { usePageQuery } from '@/lib/vue-utils';
 
 export default defineComponent({
   setup() {
-    provide('layout', {
-      aside: true,
+    const $page = usePageQuery<{allDocPage}>()
+    const links = computed(() => $page.value.allDocPage)
+    let layout = reactive({
+      aside: true
     })
+
+    provide('layout', layout)
     provide('links', docLinks)
+
+    return {
+      layout,
+      links
+    }
   }
 })
 </script>

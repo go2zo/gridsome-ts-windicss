@@ -34,7 +34,7 @@ query {
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
-import PostCard from '~/components/theme/blog/PostCard.vue'
+import PostCard from '@/components/theme/blog/PostCard.vue'
 
 export default defineComponent({
   components: {

@@ -8,8 +8,8 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
-import Card from '~/components/molecules/forms/Card.vue'
-import PostMeta from '~/components/theme/blog/PostMeta.vue'
+import Card from '@/components/molecules/forms/Card.vue'
+import PostMeta from '@/components/theme/blog/PostMeta.vue'
 
 export default defineComponent({
   components: {

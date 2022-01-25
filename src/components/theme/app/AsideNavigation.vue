@@ -7,7 +7,7 @@
     <ul>
       <template v-for="link in links">
         <AsideNavigationItem
-          v-if="link.nested !== false && link.children.length"
+          v-if="link.nested !== false && link.children && link.children.length"
           :key="link.to"
           :title="link.title"
           :docs="link.children"
@@ -24,8 +24,19 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
-  inject: ['links'],
+import { defineComponent, inject } from '@vue/composition-api';
+import AsideNavigationItem from './AsideNavigationItem.vue'
+
+export default defineComponent({
+  components: {
+    AsideNavigationItem
+  },
+  setup() {
+    const links = inject('links', [])
+
+    return {
+      links
+    }
+  }
 })
 </script>

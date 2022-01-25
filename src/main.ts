@@ -3,8 +3,8 @@
 
 import VueMq from 'vue-mq'
 import { ClientApiConstructor } from './types';
-import DefaultLayout from '~/layouts/Default.vue'
-import '~/assets/style/index.css'
+import DefaultLayout from '@/layouts/Default.vue'
+import '@/assets/style/index.css'
 
 const client: ClientApiConstructor = (Vue, { head }) => {
   // Set default layout as a global component

@@ -54,10 +54,12 @@ export default defineComponent({
         title: 'About',
       },
     ])
+    const footerLinks = reactive([])
 
     return {
       layout,
-      headerLinks
+      headerLinks,
+      footerLinks
     }
   }
 })
