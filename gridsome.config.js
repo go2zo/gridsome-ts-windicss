@@ -41,12 +41,11 @@ module.exports = {
     {
       use: '@gridsome/vue-remark',
       options: {
-        index: ['README'],
         typeName: 'DocPage',
+        index: ['README'],
         baseDir: './content/docs',
         ignore: ['README.md'],
         template: './src/templates/DocPage.vue',
-        // route: '/docs/:category/:fileInfo__name',
         pathPrefix: '/docs',
         remark: {
           autolinkHeadings: {

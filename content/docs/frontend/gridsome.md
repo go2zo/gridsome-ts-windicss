@@ -1,5 +1,6 @@
 ---
-category: frontend
+published: true
+priority: 400
 ---
 
 # Gridsome

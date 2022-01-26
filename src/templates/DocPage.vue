@@ -8,6 +8,7 @@
 query ($id: ID!) {
   doc: docPage(id: $id) {
     title
+    redirect
     headings(depth: h1) {
       value
     }
@@ -29,9 +30,9 @@ query ($id: ID!) {
 </page-query>
 
 <script lang="ts">
-import { defineComponent, provide, reactive, computed } from '@vue/composition-api';
+import { defineComponent, provide, reactive, computed } from '@vue/composition-api'
 import docLinks from '@/data/doc-links.yaml'
-import { usePageQuery } from '@/lib/vue-utils';
+import { usePageQuery } from '@/lib/vue-utils'
 
 export default defineComponent({
   setup() {
@@ -42,12 +43,16 @@ export default defineComponent({
     })
 
     provide('layout', layout)
-    provide('links', docLinks)
+    provide('links', links)
 
     return {
       layout,
-      links
+      links,
+      page: $page
     }
-  }
+  },
+  // beforeRouteEnter(to, from, next) {
+  //   next({ path: `${to.fullPath}/`})
+  // }
 })
 </script>
