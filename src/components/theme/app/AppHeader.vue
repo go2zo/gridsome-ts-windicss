@@ -11,9 +11,9 @@
           v-for="(link, index) in links"
           :key="index"
           class="pt-5px pb-10px text-current"
-          :to="link.slug"
-          >{{ link.title }}</g-link
-        >
+          :to="link.slug">
+          {{ link.title }}
+        </g-link>
       </nav>
     </div>
   </header>
