@@ -2,8 +2,14 @@
   <li>
     <h5>{{ title }}</h5>
     <ul>
-      <li v-for="doc of docs" :key="doc.to">
-        <g-link :to="doc.redirect || doc.to" class="block w-full">
+      <li
+        v-for="doc of docs"
+        :key="doc.to"
+      >
+        <g-link
+          :to="doc.redirect || doc.to"
+          class="block w-full"
+        >
           <span>{{ doc.title }}</span>
         </g-link>
       </li>
@@ -29,7 +35,7 @@ export default {
   },
   computed: {
     isActive() {
-      this.docs.some
+      return this.docs.some !== undefined
     },
   },
 }

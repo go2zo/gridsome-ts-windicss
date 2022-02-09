@@ -1,6 +1,7 @@
 <template>
   <nav
-    class="flex flex-col justify-start max-w-sm overflow-y-auto text-sm font-medium lg:h-[reset] h-(full-header) d-scrollbar py-4 px-4 sh:px-6 lg:pr-0 lg:pt-8">
+    class="flex flex-col justify-start max-w-sm overflow-y-auto text-sm font-medium lg:h-[reset] h-(full-header) d-scrollbar py-4 px-4 sh:px-6 lg:pr-0 lg:pt-8"
+  >
     <!-- TODO: Back link -->
     <!-- <g-link /> -->
 
@@ -12,27 +13,32 @@
           :key="link.to"
           :title="link.title"
           :docs="link.children"
-          :collapse.sync="link.collapse" />
-        <AsideNavigationItem v-else :key="link.to" :docs="[link]" />
+          :collapse.sync="link.collapse"
+        />
+        <AsideNavigationItem
+          v-else
+          :key="link.to"
+          :docs="[link]"
+        />
       </template>
     </ul>
   </nav>
 </template>
 
-<script lang="ts">
+<script>
+import { defineComponent, inject } from '@vue/composition-api'
 import AsideNavigationItem from './AsideNavigationItem.vue'
 
-export default {
+export default defineComponent({
   components: {
     AsideNavigationItem,
   },
-  // data: () => ({
-  //   links: []
-  // })
-  inject: {
-    links: {
-      default: [],
-    },
+  setup() {
+    const links = inject('links', {})
+
+    return {
+      links,
+    }
   },
-}
+})
 </script>

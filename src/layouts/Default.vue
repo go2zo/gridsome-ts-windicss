@@ -1,6 +1,6 @@
 <template>
   <AppLayout>
-    <slot></slot>
+    <slot />
   </AppLayout>
 </template>
 

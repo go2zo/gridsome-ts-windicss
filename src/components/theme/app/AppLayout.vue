@@ -1,12 +1,22 @@
 <template>
   <div class="relative w-full">
     <AppHeader :links="headerLinks" />
-    <div class="lg:flex" :class="{ 'd-container': layout.aside }">
-      <slot v-if="layout.aside" name="aside">
-        <AppAside :links="headerLinks" :class="layout.asideClass" />
+    <div
+      class="lg:flex"
+      :class="{ 'd-container': layout.aside }"
+    >
+      <slot
+        v-if="layout.aside"
+        name="aside"
+      >
+        <AppAside
+          :links="headerLinks"
+          :class="layout.asideClass"
+        />
       </slot>
       <div
-        class="flex-auto w-full min-w-0 lg:static lg:max-h-full lg:overflow-visible">
+        class="flex-auto w-full min-w-0 lg:static lg:max-h-full lg:overflow-visible"
+      >
         <slot />
       </div>
     </div>
@@ -24,6 +34,9 @@ export default {
     AppHeader,
     AppFooter,
     AppAside,
+  },
+  inject: {
+    layout: { default: {} },
   },
   data: () => ({
     headerLinks: [
@@ -46,8 +59,5 @@ export default {
     ],
     footerLinks: [],
   }),
-  inject: {
-    layout: { default: {} },
-  },
 }
 </script>

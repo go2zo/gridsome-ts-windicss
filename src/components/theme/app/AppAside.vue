@@ -3,7 +3,8 @@
     <div class="h-full overflow-auto pointer-events-none lg:overflow-visible">
       <!-- Desktop aside -->
       <div
-        class="hidden lg:block fixed top-0 left-0 overflow-auto pointer-events-auto min-h-fill-available h-screen sticky top-header w-60">
+        class="hidden lg:block fixed top-0 left-0 overflow-auto pointer-events-auto min-h-fill-available h-screen sticky top-header w-60"
+      >
         <div class="w-auto h-full overflow-auto">
           <AsideNavigation />
         </div>
@@ -12,7 +13,8 @@
       <!-- TODO: Mobile aside -->
       <Transition name="slide-from-left-to-left">
         <div
-          class="lg:hidden fixed top-0 left-0 w-auto h-full overflow-auto pointer-events-auto min-h-fill-available border-r !w-base">
+          class="lg:hidden fixed top-0 left-0 w-auto h-full overflow-auto pointer-events-auto min-h-fill-available border-r !w-base"
+        >
           <div class="w-auto h-full overflow-auto">
             <AsideNavigation />
           </div>
