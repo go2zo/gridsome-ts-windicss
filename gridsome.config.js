@@ -48,12 +48,12 @@ module.exports = {
         template: './src/templates/DocPage.vue',
         pathPrefix: '/docs',
         remark: {
-          autolinkHeadings: {
-            content: {
-              type: 'text',
-              value: '#',
-            },
-          },
+          // autolinkHeadings: {
+          //   content: {
+          //     type: 'text',
+          //     value: '#',
+          //   },
+          // },
         },
       },
     },

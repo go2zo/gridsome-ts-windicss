@@ -1,6 +1,12 @@
 <template>
-  <li>
-    <h5>{{ title }}</h5>
+  <li :class="{ active: isActive }">
+    <h5
+      v-if="title"
+      class="d-aside-title"
+      :class="[isActive ? '' : 'lg:hover:d-primary-text-hover']"
+    >
+      {{ title }}
+    </h5>
     <ul>
       <li
         v-for="doc of docs"
@@ -17,7 +23,7 @@
   </li>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   props: {
     title: {
@@ -35,7 +41,7 @@ export default {
   },
   computed: {
     isActive() {
-      return this.docs.some !== undefined
+      return this.docs.some(document => document.to === this.$route.path )
     },
   },
 }

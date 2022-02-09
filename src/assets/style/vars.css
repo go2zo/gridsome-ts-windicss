@@ -1,0 +1,4 @@
+:root {
+  --header-height: theme('spacing.14');
+  --body-color: hsla(0, 0%, 0%, 0.8);
+}
