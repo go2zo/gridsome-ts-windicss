@@ -4,7 +4,6 @@
 import DefaultLayout from '~/layouts/Default.vue'
 import '~/assets/style/index.css'
 
-
 export default function (Vue, { head }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)

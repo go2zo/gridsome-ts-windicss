@@ -1,8 +1,14 @@
 import { defineConfig } from 'windicss/helpers'
+import filters from 'windicss/plugin/filters';
+import forms from 'windicss/plugin/forms'
+import aspectRatio from 'windicss/plugin/aspect-ratio'
+import lineClamp from 'windicss/plugin/line-clamp'
+import typography from 'windicss/plugin/typography'
 
 export default defineConfig({
   darkMode: 'class',
-  preflight: false,
+  preflight: true,
+  plugins: [filters, forms, aspectRatio, lineClamp, typography],
   theme: {
     extend: {
       spacing: {
@@ -42,5 +48,6 @@ export default defineConfig({
     'd-border-header': 'border-b-1 border-gray-200 dark:border-gray-800',
     'd-header': 'sticky w-full top-0 z-50 d-bg-header d-border-header d-blur-header h-header',
     'd-primary-text-hover': 'text-gray-600 dark:text-gray-400',
+    'd-aside-title': 'py-2 text-base font-semibold text-gray-900 cursor-pointer dark:text-gray-100',
   }
 })
