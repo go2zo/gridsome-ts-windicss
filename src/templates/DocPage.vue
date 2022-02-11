@@ -38,7 +38,6 @@ query ($id: ID!) {
 <script>
 import {
   defineComponent,
-  getCurrentInstance,
   computed,
   provide,
   reactive,
@@ -46,12 +45,13 @@ import {
 import path from 'path'
 import capitalize from 'capitalize'
 import { isSamePath, withTrailingSlash } from 'ufo'
+import { usePageQuery } from '@/composable';
 
 export default defineComponent({
   setup() {
-    const { proxy } = getCurrentInstance()
+    const page = usePageQuery()
     const links = computed(() => {
-      const nodes = proxy.$page.allDocPage.edges.map((edge) => edge.node)
+      const nodes = page.value.allDocPage.edges.map((edge) => edge.node)
       const group = nodes.reduce((acc, cur) => {
         // 부모 경로 얻기
         let paths = cur.to.split('/').filter(e => e).slice(0, -1)
