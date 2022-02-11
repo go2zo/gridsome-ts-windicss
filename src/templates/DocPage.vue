@@ -45,6 +45,7 @@ import {
 } from '@vue/composition-api'
 import path from 'path'
 import capitalize from 'capitalize'
+import { isSamePath, withTrailingSlash } from 'ufo'
 
 export default defineComponent({
   setup() {
@@ -52,14 +53,16 @@ export default defineComponent({
     const links = computed(() => {
       const nodes = proxy.$page.allDocPage.edges.map((edge) => edge.node)
       const group = nodes.reduce((acc, cur) => {
-        let paths = cur.to.split(path.sep).filter(e => e).slice(0, -1)
+        // 부모 경로 얻기
+        let paths = cur.to.split('/').filter(e => e).slice(0, -1)
+        // '/docs/' 인 경우 1 depth이므로 skip
         if (paths.length < 2) {
           return acc
         }
         let name = paths.at(paths.length - 1)
-        let parent = path.resolve(...paths) + path.sep
-        let pNode = nodes.find(e => e.to === parent)
-        let index = acc.findIndex(e => e.to === parent)
+        let parent = withTrailingSlash(path.resolve(...paths))
+        let pNode = nodes.find(e => isSamePath(e.to, parent))
+        let index = acc.findIndex(e => isSamePath(e.to, parent))
         if (index < 0)
           index = acc.push({
             ...pNode,
