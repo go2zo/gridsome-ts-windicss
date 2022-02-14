@@ -1,11 +1,13 @@
 // This is the main.js file. Import global CSS and scripts here.
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
+import VueCompositionAPI from '@vue/composition-api'
 import DefaultLayout from '~/layouts/Default.vue'
 import '~/assets/style/index.css'
 import { generateCSSVariables } from '~/plugins/color-shade'
 
 export default function (Vue, { head }) {
+  Vue.use(VueCompositionAPI)
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
 

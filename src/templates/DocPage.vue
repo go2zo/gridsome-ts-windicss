@@ -69,6 +69,7 @@ export default defineComponent({
             to: pNode?.to || parent,
             title: pNode?.title || capitalize.words(name),
             children: [],
+            collapse: true,
             }) - 1
         acc[index].children.push(cur)
         return acc

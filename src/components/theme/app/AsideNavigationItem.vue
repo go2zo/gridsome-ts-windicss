@@ -2,8 +2,9 @@
   <li :class="{ active: isActive }">
     <h5
       v-if="title"
-      class="d-aside-title"
-      :class="{'lg:hover:d-primary-text-hover': !isActive}"
+      class="transition duration-100 font-bold py-2"
+      :class="{ 'cursor-pointer hover:(text-gray-600 dark:text-gray-400)': !isActive }"
+      @click="toggle"
     >
       {{ title }}
     </h5>
@@ -17,10 +18,10 @@
       >
         <g-link
           :to="doc.redirect || doc.to"
-          class="block w-full"
-          :class="[isLinkActive(doc.to) ? 'd-active-aside-navigation-item-text' : 'd-secondary-text hover:d-secondary-text-hover']"
+          class=" transition duration-100 relative inline-flex items-center justify-between pl-3 py-1 border-l border-gray-100 dark:border-dark-400 text-sm text-gray-700 dark:text-gray-400 hover:text-primary hover:dark:text-primary"
+          :class="{ '!border-primary dark:border-primary': isLinkActive(doc.to) }"
         >
-          <span class="relative inline-flex items-center justify-between px-2 py-1 rounded-md">{{ doc.title }}</span>
+          {{ doc.title }}
         </g-link>
       </li>
     </ul>
@@ -28,9 +29,11 @@
 </template>
 
 <script>
+import { defineComponent, computed, toRefs } from '@vue/composition-api'
 import { isSamePath } from 'ufo'
+import { useRoute } from '@/composable'
 
-export default {
+export default defineComponent({
   props: {
     title: {
       type: String,
@@ -45,16 +48,33 @@ export default {
       default: false,
     },
   },
-  computed: {
-    isActive() {
-      return this.docs.some(document => isSamePath(document.to, this.$route.path))
-    },
-  },
-  methods: {
-    isLinkActive(to) {
-      console.log(isSamePath(this.$route.path, to))
-      return isSamePath(this.$route.path, to)
+  setup(props, { emit }) {
+    const { collapse, docs } = toRefs(props)
+    const route = useRoute()
+
+    const isActive = computed(() => docs.value.some(document => isSamePath(document.to, route.value.path)))
+    const isLinkActive = (to) => isSamePath(route.value.path, to)
+
+    const toggle = () => emit('update:collapse', !collapse)
+
+    return {
+      isActive,
+      toggle,
+      isLinkActive,
     }
-  }
-}
+  },
+  // computed: {
+  //   isActive() {
+  //     return this.docs.some(document => isSamePath(document.to, this.$route.path))
+  //   },
+  // },
+  // methods: {
+  //   isLinkActive(to) {
+  //     return isSamePath(this.$route.path, to)
+  //   },
+  //   toggle() {
+  //     this.$emit('update:collapse', !this.collapse)
+  //   }
+  // }
+})
 </script>

@@ -5,15 +5,31 @@ import aspectRatio from 'windicss/plugin/aspect-ratio'
 import lineClamp from 'windicss/plugin/line-clamp'
 import typography from 'windicss/plugin/typography'
 
+function range(size, startAt = 1) {
+  return Array.from(Array(size).keys()).map(i => i + startAt)
+}
+
 export default defineConfig({
   darkMode: 'class',
-  preflight: true,
-  plugins: [filters, forms, aspectRatio, lineClamp, typography],
+  preflight: {
+    safelist: [
+      range(6).map(i => `h${i}`)
+    ]
+  },
+  plugins: [
+    filters,
+    forms,
+    aspectRatio,
+    lineClamp,
+    typography({
+      modifiers: ['lg'],
+    })
+  ],
   theme: {
     extend: {
       colors: {
         primary: {
-          DEFAILT: 'var(--primary-400)',
+          DEFAULT: 'var(--primary-400)',
           50: 'var(--primary-50)',
           100: 'var(--primary-100)',
           200: 'var(--primary-200)',
@@ -26,6 +42,9 @@ export default defineConfig({
           900: 'var(--primary-700)',
         },
       },
+      borderColor: (theme) => ({
+        ...theme('colors'),
+      }),
       spacing: {
         base: '320px',
         header: 'var(--header-height)',
@@ -68,6 +87,7 @@ export default defineConfig({
     'd-header': 'sticky w-full top-0 z-50 d-bg-header d-border-header d-blur-header h-header',
     'd-aside-title': 'py-2 text-base font-semibold text-gray-900 cursor-pointer dark:text-gray-100',
     'd-active-aside-navigation-item-bg': 'bg-primary-50 dark:bg-primary-900',
+    'd-active-aside-navigation-item-border': 'border-l border-primary-500 dark:border-primary-400',
     'd-active-aside-navigation-item-text': 'text-primary-500 dark:text-primary-400',
   }
 })
