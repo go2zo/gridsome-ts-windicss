@@ -46,6 +46,7 @@
     "stylelint-config-recommended-vue": "^1.1.0",
     "stylelint-config-standard": "^24.0.0",
     "svg-to-vue-component": "^0.3.8",
+    "theme-colors": "^0.0.5",
     "ufo": "^0.7.10",
     "vue-eslint-parser": "^6.0.4",
     "webpack-node-externals": "^3.0.0"
