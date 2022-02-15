@@ -13,7 +13,7 @@
     "lint:fix:md": "yarn lint:md --fix",
     "lint:fix:style": "yarn lint:style --fix",
     "lint": "run-p lint:*",
-    "lint:fix": "run-p lint:fix:*"
+    "lintfix": "run-p lint:fix:*"
   },
   "dependencies": {
     "gridsome": "^0.7.0"

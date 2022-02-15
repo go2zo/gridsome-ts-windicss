@@ -38,9 +38,11 @@ query ($id: ID!) {
 <script>
 import {
   defineComponent,
-  computed,
   provide,
   reactive,
+  ref,
+  onMounted,
+  onBeforeUpdate
 } from '@vue/composition-api'
 import path from 'path'
 import capitalize from 'capitalize'
@@ -50,9 +52,11 @@ import { usePageQuery } from '@/composable';
 export default defineComponent({
   setup() {
     const page = usePageQuery()
-    const links = computed(() => {
+    const links = ref([])
+
+    const updateLink = () => {
       const nodes = page.value.allDocPage.edges.map((edge) => edge.node)
-      const group = nodes.reduce((acc, cur) => {
+      links.value = nodes.reduce((acc, cur) => {
         // 부모 경로 얻기
         let paths = cur.to.split('/').filter(e => e).slice(0, -1)
         // '/docs/' 인 경우 1 depth이므로 skip
@@ -74,15 +78,13 @@ export default defineComponent({
         acc[index].children.push(cur)
         return acc
       }, [])
-      return group
-    })
+    }
+
+    onMounted(updateLink)
+    onBeforeUpdate(updateLink)
 
     provide('layout', reactive({ aside: true }))
     provide('links', links)
-
-    return {
-      links,
-    }
   },
 })
 </script>

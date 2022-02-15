@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { defineComponent, computed, toRefs } from '@vue/composition-api'
+import { defineComponent, computed } from '@vue/composition-api'
 import { isSamePath } from 'ufo'
 import { useRoute } from '@/composable'
 
@@ -49,13 +49,12 @@ export default defineComponent({
     },
   },
   setup(props, { emit }) {
-    const { collapse, docs } = toRefs(props)
     const route = useRoute()
 
-    const isActive = computed(() => docs.value.some(document => isSamePath(document.to, route.value.path)))
+    const isActive = computed(() => props.docs.some(document => isSamePath(document.to, route.value.path)))
     const isLinkActive = (to) => isSamePath(route.value.path, to)
 
-    const toggle = () => emit('update:collapse', !collapse)
+    const toggle = () => emit('update:collapse', !props.collapse)
 
     return {
       isActive,
@@ -63,18 +62,5 @@ export default defineComponent({
       isLinkActive,
     }
   },
-  // computed: {
-  //   isActive() {
-  //     return this.docs.some(document => isSamePath(document.to, this.$route.path))
-  //   },
-  // },
-  // methods: {
-  //   isLinkActive(to) {
-  //     return isSamePath(this.$route.path, to)
-  //   },
-  //   toggle() {
-  //     this.$emit('update:collapse', !this.collapse)
-  //   }
-  // }
 })
 </script>

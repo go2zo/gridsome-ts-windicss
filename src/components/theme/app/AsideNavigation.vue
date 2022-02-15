@@ -26,7 +26,9 @@
 </template>
 
 <script>
-import { defineComponent, inject } from '@vue/composition-api'
+import { defineComponent, inject, watch } from '@vue/composition-api'
+import { isSamePath } from 'ufo'
+import { useRoute } from '@/composable'
 import AsideNavigationItem from './AsideNavigationItem.vue'
 
 export default defineComponent({
@@ -34,7 +36,24 @@ export default defineComponent({
     AsideNavigationItem,
   },
   setup() {
+    const route = useRoute()
     const links = inject('links', {})
+    console.log(links)
+
+    watch(
+      links,
+      newVal => {
+        newVal.forEach(link => {
+          if (link.children && link.children.length > 0) {
+            const isCategoryActive = link.children.some(document => isSamePath(route.value.path, document.to))
+
+            if (isCategoryActive) {
+              link.collapse = false
+            }
+          }
+        })
+      }
+    )
 
     return {
       links,
