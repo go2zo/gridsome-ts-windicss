@@ -38,7 +38,6 @@ export default defineComponent({
   setup() {
     const route = useRoute()
     const links = inject('links', {})
-    console.log(links)
 
     watch(
       links,

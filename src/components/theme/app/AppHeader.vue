@@ -17,6 +17,10 @@
           {{ link.title }}
         </g-link>
       </nav>
+
+      <div class="flex items-center justify-end gap-1 lg:flex-1">
+        <ColorSwitcher class="hidden lg:block" />
+      </div>
     </div>
   </header>
 </template>
@@ -31,10 +35,12 @@ query {
 
 <script>
 import Logo from '~/assets/images/gridsome-logo.svg'
+import ColorSwitcher from '@/components/molecules/forms/ColorSwitcher.vue'
 
 export default {
   components: {
     Logo,
+    ColorSwitcher,
   },
   props: {
     links: {
