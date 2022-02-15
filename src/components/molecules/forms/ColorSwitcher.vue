@@ -3,15 +3,15 @@
     slot="placeholder"
     class="d-icon"
     aria-label="Color Mode"
-    @click="switchColor()"
+    @click="switchColor"
   >
     <ClientOnly>
       <IconSun
-        v-if="current === 'light'"
+        v-if="preference === 'light'"
         :class="iconClass"
       />
       <IconMoon
-        v-else-if="current === 'dark'"
+        v-else-if="preference === 'dark'"
         :class="iconClass"
       />
       <IconSystem
@@ -26,10 +26,11 @@
 </template>
 
 <script>
-import { defineComponent, ref, onMounted } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 import IconSun from '@/assets/icons/sun.svg'
 import IconMoon from '@/assets/icons/moon.svg'
 import IconSystem from '@/assets/icons/system.svg'
+import { useColorMode } from '@/composable'
 
 export default defineComponent({
   components: {
@@ -45,31 +46,21 @@ export default defineComponent({
   },
   setup() {
     const values = ['system', 'light', 'dark']
-    const current = ref('system')
+    const { preference } = useColorMode()
 
     const switchColor = () => {
-      const currentIndex = values.indexOf(current.value)
-      const nextIndex = (currentIndex + 1) % values.length
-      window.__setPreferredTheme(values[nextIndex])
-      current.value = values[nextIndex]
-      // const index = values.indexOf(colorMode.preference)
+      const index = values.indexOf(preference.value)
 
-      // if (index === -1) {
-      //   colorMode.preference = values[0]
-      // } else {
-      //   const nextIndex = (index + 1) % values.length
-      //   colorMode.preference = values[nextIndex]
-      // }
+      if (index === -1) {
+        preference.value = values[0]
+      } else {
+        const nextIndex = (index + 1) % values.length
+        preference.value = values[nextIndex]
+      }
     }
 
-    onMounted(() => {
-      if (window.__theme) {
-        current.value = window.__theme
-      }
-    })
-
     return {
-      current,
+      preference,
       switchColor
     }
   },
