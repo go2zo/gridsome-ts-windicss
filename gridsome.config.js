@@ -66,6 +66,7 @@ module.exports = {
     },
     { use: 'gridsome-plugin-windicss' },
     { use: 'gridsome-plugin-composition-api' },
+    { use: 'gridsome-plugin-color-mode' },
   ],
   transformers: {
     remark: {
