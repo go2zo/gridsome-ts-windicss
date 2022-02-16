@@ -9,7 +9,10 @@ export default function (Vue, { head }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
 
-  head.bodyAttrs = { class: 'm-0 w-full transition duration-300 box-border' }
+  head.bodyAttrs = {
+    // class: 'm-0 w-full transition duration-300 box-border'
+    class: 'd-body-bg d-body-text-color text-root min-w-base antialiased tracking-semitight d-scrollbar min-w-xs'
+  }
 
   head.style.push({
     hid: 'theme-colors',

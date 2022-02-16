@@ -5,7 +5,7 @@
     />
     <div class="d-container flex items-center justify-center gap-32 px-6 py-0 min-h-14">
       <div class="flex flex-wrap">
-        <Logo class="max-w-36 h-8 mr-4 md:h-9 lg:mr-0" />
+        <Logo class="text-current max-w-36 h-8 mr-4 md:h-9 lg:mr-0" />
       </div>
       <nav class="flex-nowrap flex flex-1 items-center gap-4">
         <g-link

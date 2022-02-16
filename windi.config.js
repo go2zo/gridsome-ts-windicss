@@ -76,6 +76,8 @@ export default defineConfig({
     },
   },
   shortcuts: {
+    'd-body-bg': 'bg-white dark:bg-gray-900',
+    'd-body-text-color': 'text-gray-900 dark:text-gray-50',
     'd-container': 'max-w-7xl mx-auto',
     'd-primary-text-hover': 'text-gray-600 dark:text-gray-400',
     'd-secondary-text': 'text-gray-500 dark:text-gray-400',
