@@ -13,18 +13,18 @@ export default function install(Vue) {
   const $colorMode = new Vue({
     data,
     watch: {
-      preference(preference) {
+      preference(_preference) {
         if (this.forced) {
           return
         }
-        if (preference === 'system') {
+        if (_preference === 'system') {
           this.value = colorMode.getColorScheme()
           this._watchMedia()
         } else {
-          this.value = preference
+          this.value = _preference
         }
 
-        this._storePreference(preference)
+        this._storePreference(_preference)
       },
       value (newValue, oldValue) {
         colorMode.removeClass(oldValue)
