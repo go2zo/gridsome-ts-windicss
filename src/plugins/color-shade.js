@@ -1,5 +1,18 @@
 import { getColors } from 'theme-colors'
 
+export default function install(Vue, options = {}) {
+  let head = document.head || document.getElementsByTagName('head')[0]
+  const style = document.createElement('style')
+  const css = generateCSSVariables(options)
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css
+  } else {
+    style.appendChild(document.createTextNode(css))
+  }
+
+  head.appendChild(style)
+}
+
 function generateColors(colors) {
   return Object.entries(colors).map(([key, color]) => [key, getColors(color)])
 }
@@ -36,8 +49,4 @@ function generateCSSVariables(colors) {
   const colorsList = generateColors(colors)
   colorsList.forEach(([color, map]) => Object.entries(map).forEach(([variant, value]) => put(`${color}-${variant}`, value)))
   return generate()
-}
-
-export {
-  generateCSSVariables
 }
