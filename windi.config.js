@@ -78,7 +78,7 @@ export default defineConfig({
   shortcuts: {
     'd-body-bg': 'bg-white dark:bg-gray-900',
     'd-body-text-color': 'text-gray-900 dark:text-gray-50',
-    'd-container': 'max-w-7xl mx-auto',
+    'd-container': '!max-w-screen-2xl mx-auto',
     'd-primary-text-hover': 'text-gray-600 dark:text-gray-400',
     'd-secondary-text': 'text-gray-500 dark:text-gray-400',
     'd-secondary-text-hover': 'text-primary-500 dark:text-primary-400',
@@ -91,5 +91,7 @@ export default defineConfig({
     'd-active-aside-navigation-item-bg': 'bg-primary-50 dark:bg-primary-900',
     'd-active-aside-navigation-item-border': 'border-l border-primary-500 dark:border-primary-400',
     'd-active-aside-navigation-item-text': 'text-primary-500 dark:text-primary-400',
+    'd-icon': 'd-text-icon focus:outline-none',
+    'd-text-icon': 'd-secondary-text hover:d-secondary-text-hover'
   }
 })
