@@ -1,5 +1,5 @@
 <template>
-  <button class="flex items-center justify-center transition-colors duration-200 lg:hidden d-icon">
+  <button class="transition-colors duration-200 d-icon">
     <IconMenuAt />
   </button>
 </template>
