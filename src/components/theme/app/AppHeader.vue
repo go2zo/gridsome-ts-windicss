@@ -12,6 +12,26 @@
       </div>
       <div class="hidden lg:flex items-center flex-1">
         <nav class="inline-flex space-x-2 px-3">
+          <div
+            v-for="(link, index) in links"
+            :key="index"
+            class="item"
+          >
+            <Dropdown
+              v-if="link.items && link.items.length"
+              :items="[link.items]"
+              placement="bottom"
+              mode="hover"
+            >
+              <template #trigger>
+                <button>{{ link.title }}</button>
+                <!-- <HeaderNavigationLink>{{ link.title }}</HeaderNavigationLink> -->
+              </template>
+              <template #item="{ item }">
+                <HeaderNavigationLink :link="item" />
+              </template>
+            </Dropdown>
+          </div>
           <g-link
             v-for="(link, index) in links"
             :key="index"
@@ -22,8 +42,8 @@
           </g-link>
         </nav>
       </div>
-      <div class="flex items-center justify-end gap-1">
-        <ColorSwitcher class="hidden lg:block" />
+      <div class="flex items-center lg:space-x-3 lg:pl-3 xl:pl-6">
+        <ColorSwitcher class="inline-flex text-xl p-2" />
       </div>
     </div>
   </header>
@@ -41,12 +61,16 @@ query {
 import Logo from '~/assets/images/gridsome-logo.svg'
 import NavigationButton from '@/components/molecules/NavigationButton.vue'
 import ColorSwitcher from '@/components/molecules/forms/ColorSwitcher.vue'
+import Dropdown from '@/components/atoms/selects/Dropdown.vue'
+import HeaderNavigationLink from '@/components/atoms/links/HeaderNavigationLink.vue'
 
 export default {
   components: {
     Logo,
     NavigationButton,
     ColorSwitcher,
+    Dropdown,
+    HeaderNavigationLink,
   },
   props: {
     links: {
